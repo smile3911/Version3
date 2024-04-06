@@ -841,7 +841,7 @@ end))
 do
 	local Window = library:AddWindow("smile.lol", {
 		main_color = Color3.fromRGB(255,0,0),
-		min_size = Vector2.new(500, 600),
+		min_size = Vector2.new(200, 300),
 		toggle_key = Enum.KeyCode.RightShift,
 		can_resize = true,
 	})
@@ -1042,7 +1042,9 @@ MaterialOptions:Add("Brick")
 
 local AntiFolder = Tib:AddFolder("Anti Lock")
 		AntiFolder:AddLabel("Anti Locks")
+AntiFolder:AddButton("kirbsware", function()
 
+end)
 
 local ActualMiscs = Tib:AddFolder("Others")
 ActualMiscs:AddLabel("Miscellaneous")
