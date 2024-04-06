@@ -536,65 +536,65 @@ ping = tonumber(split[1])
 if getgenv().Settings.FearLas.AdvancedAutoPred == true and enabled then
     getgenv().CAMJUMPPREDICTION = 0.05
     if ping > 300 then
-        getgenv().CAMPREDICTION = 0.434
+        getgenv().CAMPREDICTION = 0.534
     elseif ping > 290 then
-        getgenv().CAMPREDICTION = 0.422
+        getgenv().CAMPREDICTION = 0.522
     elseif ping > 280 then
-        getgenv().CAMPREDICTION = 0.44
+        getgenv().CAMPREDICTION = 0.51
     elseif ping > 270 then
-        getgenv().CAMPREDICTION = 0.4385
+        getgenv().CAMPREDICTION = 0.5085
     elseif ping > 260 then
-        getgenv().CAMPREDICTION = 0.4158
+        getgenv().CAMPREDICTION = 0.4958
     elseif ping > 250 then
-        getgenv().CAMPREDICTION = 0.3148
+        getgenv().CAMPREDICTION = 0.3848
     elseif ping > 240 then
-        getgenv().CAMPREDICTION = 0.34
+        getgenv().CAMPREDICTION = 0.37
     elseif ping > 230 then
-        getgenv().CAMPREDICTION = 0.33
+        getgenv().CAMPREDICTION = 0.36
     elseif ping > 220 then
-        getgenv().CAMPREDICTION = 0.30
+        getgenv().CAMPREDICTION = 0.35
     elseif ping > 210 then
-        getgenv().CAMPREDICTION = 0.295
+        getgenv().CAMPREDICTION = 0.345
     elseif ping > 200 then
         getgenv().CAMPREDICTION = 0.2915
     elseif ping > 190 then
-        getgenv().CAMPREDICTION = 0.2911
+        getgenv().CAMPREDICTION = 0.3311
     elseif ping > 180 then
-        getgenv().CAMPREDICTION = 0.28291198328
+        getgenv().CAMPREDICTION = 0.32291198328
     elseif ping > 180 then
-        getgenv().CAMPREDICTION = 0.25291198328
+        getgenv().CAMPREDICTION = 0.31291198328
     elseif ping > 170 then
-        getgenv().CAMPREDICTION = 0.28
+        getgenv().CAMPREDICTION = 0.30
     elseif ping > 160 then
-        getgenv().CAMPREDICTION = 0.2754
+        getgenv().CAMPREDICTION = 0.2954
     elseif ping  >150 then
-        getgenv().CAMPREDICTION = 0.271
+        getgenv().CAMPREDICTION = 0.281
     elseif ping  >140 then
-        getgenv().CAMPREDICTION = 0.25
+        getgenv().CAMPREDICTION = 0.27
        elseif ping > 130 then
-        getgenv().CAMPREDICTION = 0.12057
+        getgenv().CAMPREDICTION = 0.26057
     elseif ping > 120 then
-        getgenv().CAMPREDICTION = 0.1966
+        getgenv().CAMPREDICTION = 0.2566
     elseif ping > 110 then
-        getgenv().CAMPREDICTION = 0.18642271
+        getgenv().CAMPREDICTION = 0.24642271
     elseif ping > 100 then
-        getgenv().CAMPREDICTION = 0.18533
+        getgenv().CAMPREDICTION = 0.23533
     elseif ping > 90 then
-        getgenv().CAMPREDICTION = 0.1749573
+        getgenv().CAMPREDICTION = 0.2249573
     elseif ping > 80 then
-        getgenv().CAMPREDICTION = 0.1745
+        getgenv().CAMPREDICTION = 0.2145
     elseif ping > 70 then
-        getgenv().CAMPREDICTION = 0.1642
+        getgenv().CAMPREDICTION = 0.2042
     elseif ping > 50 then
-        getgenv().CAMPREDICTION = 0.14267
+        getgenv().CAMPREDICTION = 0.19267
     elseif ping > 40 then
-        getgenv().CAMPREDICTION = 0.142
+        getgenv().CAMPREDICTION = 0.182
     elseif ping > 30 then
-        getgenv().CAMPREDICTION = 0.1312
+        getgenv().CAMPREDICTION = 0.1712
    elseif ping > 20 then
-        getgenv().CAMPREDICTION = 0.1312
+        getgenv().CAMPREDICTION = 0.1612
    elseif ping > 10 then
-        getgenv().CAMPREDICTION = 0.1287
+        getgenv().CAMPREDICTION = 0.1587
    end
 end
 if getgenv().Settings.FearLas.AUTOPRED == true then
@@ -840,7 +840,7 @@ end))
     end
 do
 	local Window = library:AddWindow("smile.lol", {
-		main_color = Color3.fromRGB(69,0,0),
+		main_color = Color3.fromRGB(255,0,0),
 		min_size = Vector2.new(500, 600),
 		toggle_key = Enum.KeyCode.RightShift,
 		can_resize = true,
@@ -850,7 +850,7 @@ do
 	local WsgCuh = Window:AddTab("not working")
 	local Teb = Window:AddTab("aimlock")
 	local Tib = Window:AddTab("womp")
-	local Tub = Window:AddTab("debug shit")
+	
 
 	do -- Elements
 	WsgCuh:AddLabel("Configuration")
