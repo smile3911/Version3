@@ -841,7 +841,7 @@ end))
 do
 	local Window = library:AddWindow("smile.lol", {
 		main_color = Color3.fromRGB(255,0,0),
-		min_size = Vector2.new(200, 300),
+		min_size = Vector2.new(300, 400),
 		toggle_key = Enum.KeyCode.RightShift,
 		can_resize = true,
 	})
