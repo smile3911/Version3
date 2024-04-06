@@ -263,7 +263,7 @@ function calculateVelocity(initialPos, finalPos, timeInterval)
     end)
  local Tool = Instance.new("Tool")
 Tool.RequiresHandle = false
-Tool.Name = "Lock Tool"
+Tool.Name = "smile.lol"
 Tool.Parent = game.Players.LocalPlayer.Backpack
 local player = game.Players.LocalPlayer
 local function connectCharacterAdded()
@@ -290,7 +290,7 @@ if getgenv().Settings.FearLas.Enabled or getgenv().Settings.FearLas.Camera.Enabl
                 enabled = false
                     Plr = LockToPlayer()
                 if getgenv().Settings.FearLas.NOTIF == true then 
- SendNotification("Unlocked")
+ SendNotification("unlocked")
             end
             else
                 Plr = LockToPlayer()
@@ -358,11 +358,11 @@ if getgenv().Settings.FearLas.OnHit.Hitchams.Enabled then
     end
 end
                 if getgenv().Settings.FearLas.NOTIF == true then
-SendNotification("Target: "..Plr.Character.Humanoid.DisplayName)
+SendNotification("smile : "..Plr.Character.Humanoid.DisplayName)
                 end
             end
    else
-  SendNotification("Cam/Target not enabled!")
+  SendNotification("enable bro")
         end
     end)
  
