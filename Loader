@@ -8,7 +8,7 @@ getgenv().Settings = {
     ["FearLas"] = {
         ["Enabled"] = false,
         ["DOT"] = true,
-        ["AIRSHOT"] = false,
+        ["AIRSHOT"] = true,
         ["Prediction"] = {
             ["Horizontal"] = 0.185,
             ["Vertical"] = 0.1,
@@ -23,7 +23,7 @@ getgenv().Settings = {
         ["AUTOPRED"] = false,
         ["AdvancedAutoPred"] = true,
         ["FOV"] = inf,
-        ["RESOLVER"] = false,
+        ["RESOLVER"] = true,
         ["LOCKTYPE"] = "Namecall",
         ["TargetStats"] = false,
         ["Resolver"] = {
@@ -841,15 +841,14 @@ end))
 do
 	local Window = library:AddWindow("smile.lol", {
 		main_color = Color3.fromRGB(255,0,0),
-		min_size = Vector2.new(500, 600),
+		min_size = Vector2.new(300, 400),
 		toggle_key = Enum.KeyCode.RightShift,
 		can_resize = true,
 	})
 
 	local Tab = Window:AddTab("camera Lock")
-	local WsgCuh = Window:AddTab("not working")
 	local Teb = Window:AddTab("aimlock")
-	local Tib = Window:AddTab("womp")
+	local Tib = Window:AddTab("other stuff")
 	
 
 	do -- Elements
@@ -893,10 +892,10 @@ Swaaetch:Set(false)
 local Droeopdown = WsgCuh:AddDropdown("Aim Bone", function(object)
 getgenv().SelectedPart = object
 end)
-Droeopdown:Add("HumanoidRootPart")
-Droeopdown:Add("UpperTorso")
-Droeopdown:Add("LowerTorso")
-Droeopdown:Add("Head")
+Droeopdown:Add("humanoidrootpart")
+Droeopdown:Add("uppertorso")
+Droeopdown:Add("lowertorso")
+Droeopdown:Add("head")
 
 		Tab:AddLabel("Configuration")
 
@@ -905,13 +904,13 @@ Droeopdown:Add("Head")
 		end)
 		Lenabled:Set(false)
 
-	Tab:AddTextBox("Horizontal Prediction", function(text)
+	Tab:AddTextBox("prediction", function(text)
 	getgenv().CAMPREDICTION = text
 		end, 
 	{
 	["clear"] = false, -- Default: true (options are optional)
 	})
-	Tab:AddTextBox("Smoothness Value", function(text)
+	Tab:AddTextBox("smoothness", function(text)
 		getgenv().HorizontalSmoothness = text
 		end, 
 	{
@@ -936,17 +935,17 @@ local ShakeFolder = Tab:AddFolder("Shake Configuration")
 	{
 	["clear"] = false, -- Default: true (options are optional)
 	})
-local thingsetup = Tab:AddSwitch("Auto SetUp", function(bool)
+local thingsetup = Tab:AddSwitch("auto prediction", function(bool)
 	getgenv().Settings.FearLas.AdvancedAutoPred = bool
 end)
 thingsetup:Set(false)
 	local Dropdown = Tab:AddDropdown("Aim Bone", function(object)
 		getgenv().SelectedPart = object
 		end)
-Dropdown:Add("HumanoidRootPart")
-Dropdown:Add("UpperTorso")
-Dropdown:Add("LowerTorso")
-Dropdown:Add("Head")
+Dropdown:Add("humanoidrootpart")
+Dropdown:Add("uppertorso")
+Dropdown:Add("lowertorso")
+Dropdown:Add("head")
 --// Target Lock
 	Teb:AddLabel("Configuration")
 	local bled = Teb:AddSwitch("Enabled", function(bool)
@@ -967,18 +966,18 @@ TypeThing:Add("Index")
 
 
 
-		local PredTypeThing = Teb:AddDropdown("Prediction Type", function(object)
+		local PredTypeThing = Teb:AddDropdown("prediction type", function(object)
 			getgenv().Prediction = object
 		end)
-PredTypeThing:Add("Normal")
-PredTypeThing:Add("Yun")
-	Teb:AddTextBox("Horizontal Prediction", function(text)
+PredTypeThing:Add("normal")
+PredTypeThing:Add("yun")
+	Teb:AddTextBox("prediction", function(text)
 	getgenv().PREDICTION = text
 		end, 
 	{
 	["clear"] = false, -- Default: true (options are optional)
 	})
-		local Swiitch = Teb:AddSwitch("Auto SetUp", function(bool)
+		local Swiitch = Teb:AddSwitch("auto prediction", function(bool)
 			getgenv().Settings.FearLas.AUTOPRED = bool
 		end)
 		Swiitch:Set(false)
@@ -991,15 +990,15 @@ PredTypeThing:Add("Yun")
 		getgenv().SelectedPart = object
 		end)
 
-Droopdown:Add("HumanoidRootPart")
-Droopdown:Add("UpperTorso")
-Droopdown:Add("LowerTorso")
-Droopdown:Add("Head")
+Droopdown:Add("humanoidrootpart")
+Droopdown:Add("uppertorso")
+Droopdown:Add("lowertorso")
+Droopdown:Add("head")
 
 --// Miscs
 
-local OnHitFolder = Tib:AddFolder("On Hit")
-	OnHitFolder:AddLabel("On Hit")
+local OnHitFolder = Tib:AddFolder("on hit")
+	OnHitFolder:AddLabel("on hit")
 
 local HitsoundsFolder = OnHitFolder:AddFolder("Hitsounds")
 
@@ -1030,7 +1029,7 @@ local HitchamsEnabledThing = HitchamsFolder:AddSwitch("Enabled", function(bool)
 end)
 HitchamsEnabledThing:Set(false)
 
-local MaterialOptions = HitchamsFolder:AddDropdown("Material", function(object)
+local MaterialOptions = HitchamsFolder:AddDropdown("this will lag", function(object)
 		getgenv().Settings.FearLas.OnHit.Hitchams.Material = object
 		end)
 
@@ -1040,12 +1039,8 @@ MaterialOptions:Add("Glass")
 MaterialOptions:Add("Plastic")
 MaterialOptions:Add("Brick")
 
-local AntiFolder = Tib:AddFolder("coming soon")
-		AntiFolder:AddLabel("coming soon")
-
-
-local ActualMiscs = Tib:AddFolder("Others")
-ActualMiscs:AddLabel("Miscellaneous")
+local ActualMiscs = Tib:AddFolder("others")
+ActualMiscs:AddLabel("stuff")
 ActualMiscs:AddButton("CFrame Speed", function()
 -- Initial values
 getgenv().Speed = false
@@ -1087,12 +1082,12 @@ local DelaySwitch = ActualMiscs:AddSwitch("No Delay", function(bool)
 	getgenv().NoDelay = bool
 end)
 DelaySwitch:Set(false)
-ActualMiscs:AddButton("Rightclick", function()
+ActualMiscs:AddButton("rightclick", function()
 local Player = game.Players.LocalPlayer
 local PlayerGui = Player:WaitForChild("PlayerGui")
 
 local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Name = "Corporations"
+ScreenGui.Name = "corporation"
 ScreenGui.ResetOnSpawn = false -- Keep the GUI after respawn
 ScreenGui.Parent = PlayerGui
 
@@ -1124,8 +1119,8 @@ end)
 if getgenv().NoDelay == true then
 game:GetService("CorePackages").Packages:Destroy()
 end
-local BypassFolder = Tib:AddFolder("Anti Cheat Bypass")
-BypassFolder:AddLabel("Anti Cheats")
+local BypassFolder = Tib:AddFolder("bypass")
+BypassFolder:AddLabel("bypass")
 local Bypass1 = BypassFolder:AddSwitch("Hood Custom Camlock Bypass", function(bool)
 	getgenv().Settings.FearLas.Camera.HoodCustomsBypass = bool
 end)
