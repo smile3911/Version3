@@ -841,7 +841,7 @@ end))
 do
 	local Window = library:AddWindow("smile.lol", {
 		main_color = Color3.fromRGB(255,0,0),
-		min_size = Vector2.new(300, 400),
+		min_size = Vector2.new(500, 600),
 		toggle_key = Enum.KeyCode.RightShift,
 		can_resize = true,
 	})
@@ -889,7 +889,7 @@ local Swaaetch = WsgCuh:AddSwitch("Auto SetUp", function(bool)
 getgenv().Settings.FearLas.AUTOPRED = bool
 end)
 Swaaetch:Set(false)
-local Droeopdown = WsgCuh:AddDropdown("Aim Bone", function(object)
+local Droeopdown = WsgCuh:AddDropdown("lock part", function(object)
 getgenv().SelectedPart = object
 end)
 Droeopdown:Add("humanoidrootpart")
@@ -897,7 +897,7 @@ Droeopdown:Add("uppertorso")
 Droeopdown:Add("lowertorso")
 Droeopdown:Add("head")
 
-		Tab:AddLabel("Configuration")
+		Tab:AddLabel("configuration")
 
 	local Lenabled = Tab:AddSwitch("Enabled", function(bool)
 		getgenv().Settings.FearLas.Camera.Enabled = bool
@@ -939,7 +939,7 @@ local thingsetup = Tab:AddSwitch("auto prediction", function(bool)
 	getgenv().Settings.FearLas.AdvancedAutoPred = bool
 end)
 thingsetup:Set(false)
-	local Dropdown = Tab:AddDropdown("Aim Bone", function(object)
+	local Dropdown = Tab:AddDropdown("lock part", function(object)
 		getgenv().SelectedPart = object
 		end)
 Dropdown:Add("humanoidrootpart")
