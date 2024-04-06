@@ -161,8 +161,8 @@ local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/
 
 function SendNotification(text)
     Notification:Notify(
-        {Title = "Imperial V3", Description = "By Las (Lion) - "..text},
-        {OutlineColor = Color3.fromRGB(115,0,0),Time = 3, Type = "image"},
+        {Title = "smile.lol", Description = "smile : "..text},
+        {OutlineColor = Color3.fromRGB(255,0,0),Time = 3, Type = "image"},
         {Image = "http://www.roblox.com/asset/?id=6023426923", ImageColor = Color3.fromRGB(115,0,0)}
     )
 end
