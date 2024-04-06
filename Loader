@@ -23,7 +23,7 @@ getgenv().Settings = {
         ["AUTOPRED"] = false,
         ["AdvancedAutoPred"] = true,
         ["FOV"] = inf,
-        ["RESOLVER"] = false,
+        ["RESOLVER"] = true,
         ["LOCKTYPE"] = "Namecall",
         ["TargetStats"] = false,
         ["Resolver"] = {
@@ -87,14 +87,14 @@ getgenv().Settings = {
 		["Size"] = 23,
 		["Filled"] = false,
 		["Thickness"] = 0.66,
-		["Transparency"] = 0.5,
-		["Color"] = Color3.fromRGB(255,0,0),
+		["Transparency"] = 0.9,
+		["Color"] = Color3.fromRGB(255,255,255),
 	},
 	["Misc"] = {
 	    ["NoDelay"] = false,
-	    ["AutoReload"] = true,
+	    ["AutoReload"] = false,
 	    ["AutoAir"] = {
-	        ["Enabled"] = true,
+	        ["Enabled"] = false,
 	        ["Interval"] = 0.5,
 	    },
 	    ["CMDS"] = { 
@@ -161,9 +161,9 @@ local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/
 
 function SendNotification(text)
     Notification:Notify(
-        {Title = "smile.lol", Description = "locked onto: "..text},
+        {Title = "Imperial V3", Description = "By Las (Lion) - "..text},
         {OutlineColor = Color3.fromRGB(115,0,0),Time = 3, Type = "image"},
-        {Image = "http://www.roblox.com/asset/?id=6023426923", ImageColor = Color3.fromRGB(255,0,0)}
+        {Image = "http://www.roblox.com/asset/?id=6023426923", ImageColor = Color3.fromRGB(115,0,0)}
     )
 end
 function calculateVelocity(initialPos, finalPos, timeInterval)
@@ -263,7 +263,7 @@ function calculateVelocity(initialPos, finalPos, timeInterval)
     end)
  local Tool = Instance.new("Tool")
 Tool.RequiresHandle = false
-Tool.Name = "smile.lol"
+Tool.Name = "Lock Tool"
 Tool.Parent = game.Players.LocalPlayer.Backpack
 local player = game.Players.LocalPlayer
 local function connectCharacterAdded()
@@ -358,11 +358,11 @@ if getgenv().Settings.FearLas.OnHit.Hitchams.Enabled then
     end
 end
                 if getgenv().Settings.FearLas.NOTIF == true then
-SendNotification("murdering: "..Plr.Character.Humanoid.DisplayName)
+SendNotification("Target: "..Plr.Character.Humanoid.DisplayName)
                 end
             end
    else
-  SendNotification("enable cam or aim lock bozo")
+  SendNotification("Cam/Target not enabled!")
         end
     end)
  
@@ -379,7 +379,7 @@ local UIGradient_4 = Instance.new("UIGradient")
 local NameOfTarget = Instance.new("TextLabel")
 
 spawn(function()
-TargetStats.Name = "targetstats"
+TargetStats.Name = "TargetStats"
 TargetStats.Parent = game.CoreGui
 TargetStats.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
@@ -400,7 +400,7 @@ Picture.Size = UDim2.new(0, 59, 0, 59)
 Picture.Transparency = 1
 Picture.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
 
-Top.Name = "top"
+Top.Name = "Top"
 Top.Parent = Background
 Top.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Top.BorderSizePixel = 0
@@ -438,7 +438,7 @@ UIGradient_4.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fr
 UIGradient_4.Rotation = 90
 UIGradient_4.Parent = HealthBar
 
-NameOfTarget.Name = "nameoftarget"
+NameOfTarget.Name = "NameOfTarget"
 NameOfTarget.Parent = Background
 NameOfTarget.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 NameOfTarget.BackgroundTransparency = 1.000
@@ -536,27 +536,27 @@ ping = tonumber(split[1])
 if getgenv().Settings.FearLas.AdvancedAutoPred == true and enabled then
     getgenv().CAMJUMPPREDICTION = 0.05
     if ping > 300 then
-        getgenv().CAMPREDICTION = 0.534
+        getgenv().CAMPREDICTION = 0.44
     elseif ping > 290 then
-        getgenv().CAMPREDICTION = 0.522
+        getgenv().CAMPREDICTION = 0.432
     elseif ping > 280 then
-        getgenv().CAMPREDICTION = 0.51
+        getgenv().CAMPREDICTION = 0.42
     elseif ping > 270 then
-        getgenv().CAMPREDICTION = 0.5085
+        getgenv().CAMPREDICTION = 0.4185
     elseif ping > 260 then
-        getgenv().CAMPREDICTION = 0.4958
+        getgenv().CAMPREDICTION = 0.4058
     elseif ping > 250 then
-        getgenv().CAMPREDICTION = 0.3848
+        getgenv().CAMPREDICTION = 0.3948
     elseif ping > 240 then
-        getgenv().CAMPREDICTION = 0.37
+        getgenv().CAMPREDICTION = 0.38
     elseif ping > 230 then
-        getgenv().CAMPREDICTION = 0.36
+        getgenv().CAMPREDICTION = 0.37
     elseif ping > 220 then
-        getgenv().CAMPREDICTION = 0.35
+        getgenv().CAMPREDICTION = 0.36
     elseif ping > 210 then
-        getgenv().CAMPREDICTION = 0.345
+        getgenv().CAMPREDICTION = 0.355
     elseif ping > 200 then
-        getgenv().CAMPREDICTION = 0.2915
+        getgenv().CAMPREDICTION = 0.3415
     elseif ping > 190 then
         getgenv().CAMPREDICTION = 0.3311
     elseif ping > 180 then
@@ -713,7 +713,7 @@ if getgenv().Prediction == "Normal" then
                     getgenv().PREDICTION = 0.09
                 end
 end
-elseif getgenv().AutoPredType == "fake celex" then
+elseif getgenv().AutoPredType == "Fake Celex" then
     if getgenv().Prediction == "Normal" then
         getgenv().JUMPPREDICTION = tostring(ping/1500)
                 if ping > 190 then
@@ -846,10 +846,10 @@ do
 		can_resize = true,
 	})
 
-	local Tab = Window:AddTab("camera Lock")
-	local WsgCuh = WindowAddTab("n")
-	local Teb = Window:AddTab("aimlock")
-	local Tib = Window:AddTab("other(got from imperial)")
+	local Tab = Window:AddTab("cam lock")
+	local WsgCuh = Window:AddTab("not working")
+	local Teb = Window:AddTab("aim lock")
+	local Tib = Window:AddTab("Miscs")
 	
 
 	do -- Elements
@@ -893,60 +893,60 @@ Swaaetch:Set(false)
 local Droeopdown = WsgCuh:AddDropdown("Aim Bone", function(object)
 getgenv().SelectedPart = object
 end)
-Droeopdown:Add("humanoidRootPart")
-Droeopdown:Add("upperTorso")
-Droeopdown:Add("lowerTorso")
-Droeopdown:Add("head")
+Droeopdown:Add("HumanoidRootPart")
+Droeopdown:Add("UpperTorso")
+Droeopdown:Add("LowerTorso")
+Droeopdown:Add("Head")
 
-		Tab:AddLabel("configuration")
+		Tab:AddLabel("Configuration")
 
 	local Lenabled = Tab:AddSwitch("Enabled", function(bool)
 		getgenv().Settings.FearLas.Camera.Enabled = bool
 		end)
 		Lenabled:Set(false)
 
-	Tab:AddTextBox("prediction", function(text)
+	Tab:AddTextBox("Horizontal Prediction", function(text)
 	getgenv().CAMPREDICTION = text
 		end, 
 	{
 	["clear"] = false, -- Default: true (options are optional)
 	})
-	Tab:AddTextBox("smoothness", function(text)
+	Tab:AddTextBox("Smoothness Value", function(text)
 		getgenv().HorizontalSmoothness = text
 		end, 
 	{
 	["clear"] = false, -- Default: true (options are optional)
 	})
-local ShakeFolder = Tab:AddFolder("shake")
-	ShakeFolder:AddTextBox("X", function(text)
+local ShakeFolder = Tab:AddFolder("Shake Configuration")
+	ShakeFolder:AddTextBox("X Value", function(text)
 		getgenv().ShakeX = text
 		end, 
 	{
 	["clear"] = false, -- Default: true (options are optional)
 	})
-	ShakeFolder:AddTextBox("Y", function(text)
+	ShakeFolder:AddTextBox("Y Value", function(text)
 		getgenv().ShakeY = text
 		end, 
 	{
 	["clear"] = false, -- Default: true (options are optional)
 	})
-	ShakeFolder:AddTextBox("Z", function(text)
+	ShakeFolder:AddTextBox("Z Value", function(text)
 		getgenv().ShakeZ = text
 		end, 
 	{
 	["clear"] = false, -- Default: true (options are optional)
 	})
-local thingsetup = Tab:AddSwitch("auto prediction", function(bool)
+local thingsetup = Tab:AddSwitch("Auto SetUp", function(bool)
 	getgenv().Settings.FearLas.AdvancedAutoPred = bool
 end)
 thingsetup:Set(false)
 	local Dropdown = Tab:AddDropdown("Aim Bone", function(object)
 		getgenv().SelectedPart = object
 		end)
-Dropdown:Add("humanoidrootpart")
-Dropdown:Add("uppertorso")
-Dropdown:Add("lowertorso")
-Dropdown:Add("non existant brain")
+Dropdown:Add("HumanoidRootPart")
+Dropdown:Add("UpperTorso")
+Dropdown:Add("LowerTorso")
+Dropdown:Add("Head")
 --// Target Lock
 	Teb:AddLabel("Configuration")
 	local bled = Teb:AddSwitch("Enabled", function(bool)
@@ -967,18 +967,18 @@ TypeThing:Add("Index")
 
 
 
-		local PredTypeThing = Teb:AddDropdown("prediction type", function(object)
+		local PredTypeThing = Teb:AddDropdown("Prediction Type", function(object)
 			getgenv().Prediction = object
 		end)
 PredTypeThing:Add("Normal")
 PredTypeThing:Add("Yun")
-	Teb:AddTextBox("prediction", function(text)
+	Teb:AddTextBox("Horizontal Prediction", function(text)
 	getgenv().PREDICTION = text
 		end, 
 	{
 	["clear"] = false, -- Default: true (options are optional)
 	})
-		local Swiitch = Teb:AddSwitch("auto pred", function(bool)
+		local Swiitch = Teb:AddSwitch("Auto SetUp", function(bool)
 			getgenv().Settings.FearLas.AUTOPRED = bool
 		end)
 		Swiitch:Set(false)
@@ -987,11 +987,11 @@ PredTypeThing:Add("Yun")
 		end)
 		pptch:Set(false)
 
-		local Droopdown = Teb:AddDropdown("aim part", function(object)
+		local Droopdown = Teb:AddDropdown("Aim Bone", function(object)
 		getgenv().SelectedPart = object
 		end)
 
-Droopdown:Add("humanoidrootpart")
+Droopdown:Add("HumanoidRootPart")
 Droopdown:Add("UpperTorso")
 Droopdown:Add("LowerTorso")
 Droopdown:Add("Head")
@@ -1040,8 +1040,8 @@ MaterialOptions:Add("Glass")
 MaterialOptions:Add("Plastic")
 MaterialOptions:Add("Brick")
 
-local AntiFolder = Tib:AddFolder("coming soon")
-		AntiFolder:AddLabel("coming soon")
+local AntiFolder = Tib:AddFolder("Anti Lock")
+		AntiFolder:AddLabel("Anti Locks")
 
 
 local ActualMiscs = Tib:AddFolder("Others")
@@ -1055,7 +1055,7 @@ local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 ScreenGui.ResetOnSpawn = false
 local ToggleButton = Instance.new("TextButton")
-ToggleButton.Text = "toggle speed"
+ToggleButton.Text = "Toggle Speed"
 ToggleButton.Parent = ScreenGui
 ToggleButton.BackgroundTransparency = 0.5
 ToggleButton.BorderSizePixel = 0
@@ -1077,7 +1077,7 @@ game:GetService("RunService").Stepped:Connect(function()
 end)
 end)
 
-ActualMiscs:AddTextBox("speed amount", function(text)
+ActualMiscs:AddTextBox("Speed Amount", function(text)
 getgenv().SpeedAmount = text
 end, 
 {
@@ -1105,7 +1105,7 @@ TextButton.BorderSizePixel = 0
 TextButton.Position = UDim2.new(1, -120, 0, 10) -- Adjusted the position to top right corner
 TextButton.Size = UDim2.new(0, 100, 0, 18)
 TextButton.Font = Enum.Font.SourceSans
-TextButton.Text = "rightclick"
+TextButton.Text = "Rightclick"
 TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextButton.TextSize = 18
 local UICorner = Instance.new("UICorner")
