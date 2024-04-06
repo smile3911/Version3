@@ -847,7 +847,7 @@ do
 	})
 
 	local Tab = Window:AddTab("camera Lock")
-	
+	local WsgCuh = WindowAddTab("n")
 	local Teb = Window:AddTab("aimlock")
 	local Tib = Window:AddTab("other(got from imperial)")
 	
@@ -940,7 +940,7 @@ local thingsetup = Tab:AddSwitch("auto prediction", function(bool)
 	getgenv().Settings.FearLas.AdvancedAutoPred = bool
 end)
 thingsetup:Set(false)
-	local Dropdown = Tab:AddDropdown("aim part", function(object)
+	local Dropdown = Tab:AddDropdown("Aim Bone", function(object)
 		getgenv().SelectedPart = object
 		end)
 Dropdown:Add("humanoidrootpart")
